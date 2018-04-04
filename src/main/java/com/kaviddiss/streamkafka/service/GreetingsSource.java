@@ -20,26 +20,26 @@ public class GreetingsSource {
     @Value("${format}")
     private String format;
 
-//    @Bean
-//    @InboundChannelAdapter(value = GreetingsStreams.OUTPUT, poller = @Poller(fixedDelay = "${fixedDelay}", maxMessagesPerPoll = "1"))
-//    public MessageSource<Greetings> timerMessageSource() {
-//        return () -> new GenericMessage<>(Greetings.builder()
-//                .message("timerMessageSource")
-//                .timestamp(System.currentTimeMillis())
-//                .build());
-//    }
-
     @Bean
     @InboundChannelAdapter(value = GreetingsStreams.OUTPUT, poller = @Poller(fixedDelay = "${fixedDelay}", maxMessagesPerPoll = "1"))
-    public MessageSource<String> timerMessageSource1() {
-//        return () -> new GenericMessage<>(Greetings.builder()
-//                .message("timerMessageSource")
-//                .timestamp(System.currentTimeMillis())
-//                .build());
-
-//        Map<String, Object> headers = new HashMap<>();
-//        headers.put(MessageHeaders.CONTENT_TYPE, "application/greetings");
-
-        return () -> new GenericMessage<>(String.valueOf(System.currentTimeMillis()) + "||" + "eeeee");
+    public MessageSource<Greetings> timerMessageSource() {
+        return () -> new GenericMessage<>(Greetings.builder()
+                .message("timerMessageSource")
+                .timestamp(System.currentTimeMillis())
+                .build());
     }
+
+//    @Bean
+//    @InboundChannelAdapter(value = GreetingsStreams.OUTPUT, poller = @Poller(fixedDelay = "${fixedDelay}", maxMessagesPerPoll = "1"))
+//    public MessageSource<String> timerMessageSource1() {
+////        return () -> new GenericMessage<>(Greetings.builder()
+////                .message("timerMessageSource")
+////                .timestamp(System.currentTimeMillis())
+////                .build());
+//
+////        Map<String, Object> headers = new HashMap<>();
+////        headers.put(MessageHeaders.CONTENT_TYPE, "application/greetings");
+//
+//        return () -> new GenericMessage<>(String.valueOf(System.currentTimeMillis()) + "||" + "eeeee");
+//    }
 }

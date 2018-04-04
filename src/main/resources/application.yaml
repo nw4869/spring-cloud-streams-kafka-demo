@@ -7,9 +7,9 @@ spring:
       bindings:
         greetings-in:
           destination: greetings
-          contentType: application/greetings
+          contentType: application/json
         greetings-out:
           destination: greetings
-#          contentType: application/greetings
+          contentType: application/json
 format: YYYY-MM-dd HH:mm:ss
 fixedDelay: 1000
